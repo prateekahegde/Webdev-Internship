@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div onmouseover="mOver(this)" onmouseout="mOut(this)" style="background-color: tomato;width: 100px;height:50px; padding: 40px;color: white;">Hover the mouse here</div>
+
+    <script> 
+    function mOver(obj){
+        obj.innerHTML = "Thank you"
+    }
+
+    function mOut(obj){
+        obj.innerHTML = "Come back soon"
+    }
+    </script>
+
+    <br><br><br>
+
+    <!-- Web API (GeoLocation) -->
+    <button onclick="getLocation()">Click on it</button>
+    <p id="demo"></p> 
+
+    <script>
+        const a = document.getElementById("demo");
+
+        function getLocation() {
+            try {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } catch {
+                a.innerHTML = "err";
+            }
+        }
+
+        function showPosition(position) {
+            a.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+        }
+    </script>
+
+    <br><br><br>
+
+    <!-- Form API -->
+    <input type="number" id="id1" min="100" max="500" >
+    <button onclick="myFunction()">Submit</button>
+
+
+    <script>
+        function myFunction(){
+            const inpObj = document.getElementById("id1");
+            if(!inpObj.checkValidity()) {
+                document.getElementById("demo1").innerHTML = inpObj.validationMessage;
+            } else {
+                document.getElementById("demo1").innerHTML = "Input Ok";
+            }
+        }
+    </script>
+    <br>
+    <p id="demo1"></p>
+
+
+</body>
+</html>
